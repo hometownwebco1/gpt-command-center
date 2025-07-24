@@ -22,7 +22,7 @@ model ChatMessage {
   id        Int      @id @default(autoincrement())
   from      String
   text      String
-  timestamp DateTime @default(now())
+  createdAt DateTime @default(now())
 }
 
 model GPTLog {
@@ -30,5 +30,5 @@ model GPTLog {
   gptId     String
   prompt    String
   response  String
-  timestamp DateTime @default(now())
+  createdAt DateTime @default(now())
 }
