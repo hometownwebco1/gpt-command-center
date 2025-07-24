@@ -1,0 +1,34 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Task {
+  id          Int      @id @default(autoincrement())
+  title       String
+  status      String
+  assignedGPT String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  approved    Boolean  @default(false)
+  needsAction Boolean  @default(true)
+}
+
+model ChatMessage {
+  id        Int      @id @default(autoincrement())
+  from      String
+  text      String
+  timestamp DateTime @default(now())
+}
+
+model GPTLog {
+  id        Int      @id @default(autoincrement())
+  gptId     String
+  prompt    String
+  response  String
+  timestamp DateTime @default(now())
+}
