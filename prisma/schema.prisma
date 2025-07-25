@@ -12,6 +12,7 @@ model Task {
   title       String
   status      String
   assignedGPT String
+  pipeline    Json     // ✅ Newly added field to support Cronus execution
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
   approved    Boolean  @default(false)
