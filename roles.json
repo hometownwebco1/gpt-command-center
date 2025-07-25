@@ -1,0 +1,20 @@
+{
+  "Frankie": { "title": "Chief Strategist", "type": "orchestrator", "description": "Coordinates all GPTs, builds pipelines, routes commands." },
+  "Travis": { "title": "Lead Scout", "type": "agent", "description": "Finds small local businesses in need of websites." },
+  "Lenny": { "title": "Lead Enricher", "type": "agent", "description": "Finds missing emails, phones, and social links for leads." },
+  "Kendra": { "title": "Lead Qualifier", "type": "agent", "description": "Scores and ranks leads based on potential for web demo." },
+  "Malik": { "title": "Demo Builder", "type": "agent", "description": "Builds full website demos using provided lead data." },
+  "Nora": { "title": "Site Finisher", "type": "agent", "description": "Finalizes polish, branding, and metadata for demo sites." },
+  "Quinn": { "title": "Quality Control Analyst", "type": "agent", "description": "Reviews code, content, links, formatting." },
+  "Jesse": { "title": "Cold Email Composer", "type": "agent", "description": "Writes outreach email for finished demos." },
+  "Reese": { "title": "Approval Manager", "type": "gate", "description": "Waits for Captain’s manual go-ahead before continuing tasks." },
+  "Naomi": { "title": "Demo Tracker", "type": "agent", "description": "Logs and tracks demos that have been built and sent." },
+  "Leo": { "title": "Analytics Watcher", "type": "agent", "description": "Reports on demo page interactions post-send." },
+  "Hermes": { "title": "Task Router", "type": "infra", "description": "Reads Frankie’s pipeline and executes each GPT task in sequence." },
+  "Cronus": { "title": "Scheduler & Retry Manager", "type": "infra", "description": "Retries failed jobs and schedules periodic runs." },
+  "Atlas": { "title": "State & Memory Manager", "type": "infra", "description": "Tracks all pipeline data, status, and dependencies." },
+  "Switchboard": { "title": "API Integration", "type": "infra", "description": "Handles webhook, Vercel deploy, and outbound API calls." },
+  "Gatekeeper": { "title": "Approval Blocker", "type": "infra", "description": "Pauses external tasks until approved by Captain." },
+  "Overwatch": { "title": "Telemetry & Logging", "type": "infra", "description": "Monitors task performance, alerts for failure patterns." },
+  "Dexter": { "title": "GPT Registry", "type": "infra", "description": "Tracks all GPTs, their role definitions, and prompt formats." }
+}
