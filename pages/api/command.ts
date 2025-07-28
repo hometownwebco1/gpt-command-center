@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { runPipeline } from '../../lib/router';
 import { generatePrompt } from '../../lib/promptFactory';
-import { callOpenAI } from '../../lib/openai';
+import { runGptChat } from '../../lib/openai';  // ✅ FIXED
 
 type PipelineStep = {
   gpt: string;
@@ -17,7 +17,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const { command } = req.body;
     if (!command) return res.status(400).json({ error: 'Missing command' });
 
-    // 1. Ask Frankie to create the pipeline using real GPT call
     const frankiePrompt = generatePrompt({
       gpt: 'Frankie',
       task: `Create a JSON pipeline to fulfill this request: "${command}"`,
@@ -30,10 +29,9 @@ Rules:
       `,
     });
 
-    const frankieOutput = await callOpenAI(frankiePrompt);
+    const frankieOutput = await runGptChat(frankiePrompt);  // ✅ FIXED
     const parsedPipeline: PipelineStep[] = JSON.parse(frankieOutput);
 
-    // 2. Run pipeline through Hermes
     const output = await runPipeline(parsedPipeline);
 
     return res.status(200).json({ pipeline: parsedPipeline, result: output });
