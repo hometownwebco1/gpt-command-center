@@ -10,7 +10,7 @@ export async function retryFailedTask(taskId: number) {
 
   const pipeline = task.pipeline as any;
   const result = await runPipeline(pipeline, taskId);
-  await saveTask(task.command, pipeline, result);
+  await saveTask(task.title, pipeline, result); // FIXED from task.command
 
   return result;
 }
